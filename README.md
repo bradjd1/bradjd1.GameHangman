@@ -1,0 +1,5 @@
+This game was created to fulfill a class project.  However, I hope it may bring enjoyment to you as you play.
+
+This is the game of hangman.  The objective is to guess what the hidden word is with less than 7 incorrect letter guesses.  You play by guessing letters of the alphabet that you believe are in the word.  If that letter is in the word, the letter is displayed.  If the letter is not in the word, it is counted as an incorrect guess.  If you guess the word correctly with less than 7 incorrect letter guesses, you win.  You lose on the 7th incorrect letter guess.
+
+The game is typically scored by adding a noose and 6 body parts to the hangman's stand for each incorrect answer.  Once the noose and all 6 body parts are drawn, the hangman wins and you lose.  Many people score it in the following order: start with the noose, then add the head, add a torso, add an arm, add an arm, add a leg, and adding the final leg indicates you lost.  Others start with the head, torso, arm, arm, leg, leg and drawing the noose is the indicator you lost.
