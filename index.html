@@ -10,9 +10,30 @@
 </head>
 <body>
     <header>
-        <h1>Website currently under construction
-        </h1>
+        <!-- <h1>Website currently under construction</h1> -->
+        <h1>Game of Hangman</h1>
     </header>
     <script src='script.js'></script>
+
+    <h2 class='notificationMsg'>show win or lose message</h2>
+    <!-- this div section defines placeholders for games played, -->
+    <!-- games won, and win percentage -->
+    <div class='gameCounts'>
+        <h3 class='gamesPlayed'>Games Played: </h3>
+        <p class='gamesPlayed'>0</p>
+        <h3 class='gamesWon'>Games Won:</h3>
+        <p class='gamesWon'>0</p>
+        <h3 class='winPct'>Win Percentage:</h3>
+        <p class='winPercentage'>0</p>
+    </div>
+    <!-- this div defines where the word to be guessed displays -->
+    <div class='word'>
+        <p>_ _ _ _ _ _ _ _</p>
+    </div>
+    <!-- this div shows letters available to be used for guessing -->
+    <div class='availLetters'>a b c</div>
+    <!-- this div shows letters already guessed -->
+    <div class='usedLetters'></div>
+
 </body>
 </html>
