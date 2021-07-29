@@ -22,5 +22,26 @@ h2 {
 
 .availLetters {
     text-align: center;
+}
 
+.buttons {
+    text-align: center;
+}
+.easyButton {
+    background-color: rgb(175, 228, 175);
+}
+
+.harderButton {
+    background-color: rgb(233, 151, 151);
+}
+
+.alphabetBtns {
+position: fixed;
+right: 500px;
+text-align: left;
+display: flex;
+width: 20%;
+height: auto;
+flex-wrap: wrap;
+justify-content: space-between;
 }

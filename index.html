@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <header>
         <!-- <h1>Website currently under construction</h1> -->
         <h1>Game of Hangman</h1>
-        <button class='easyButton'>Easy</button>
-        <button class = 'harder'>Harder</button>
+        <div class='buttons'>
+            <button class='easyButton'>Easy</button>
+            <button class='harderButton'>Harder</button>
+        </div>
     </header>
-<!-- this div section is where won/lost messages will be displayed -->
+    <!-- this div section is where won/lost messages will be displayed -->
     <h2 class='notificationMsg'>show win or lose message</h2>
     <!-- this div section defines placeholders for games played, -->
     <!-- games won, and win percentage -->
@@ -29,18 +33,47 @@
     </div>
     <!-- this div defines where the word to be guessed displays -->
     <div class='word'>
-        <p>_ _ _ _ _ _ _ _</p>
+        <!-- <div></div> -->
     </div>
     <!-- this div shows letters available to be used for guessing -->
-    <div class='availLetters'>a b c d e</div>
+    <!-- <div class='availLetters'>a b c d e</div>
     <div class='availLetters'>f g h i j</div>
     <div class='availLetters'>k l m n o</div>
     <div class='availLetters'>p q r s t</div>
     <div class='availLetters'>u v w x y</div>
-    <div class='availLetters'>z</div>
+    <div class='availLetters'>z</div> -->
+    <div class='alphabetBtns'>
+        <button class='a'>a</button>
+        <button class='b'>b</button>
+        <button class='c'>c</button>
+        <button class='d'>d</button>
+        <button class='e'>e</button>
+        <button class='f'>f</button>
+        <button class=''>g</button>
+        <button class=''>h</button>
+        <button class=''>i</button>
+        <button class=''>j</button>
+        <button class=''>k</button>
+        <button class=''>l</button>
+        <button class=''>m</button>
+        <button class=''>n</button>
+        <button class=''>o</button>
+        <button class=''>p</button>
+        <button class=''>q</button>
+        <button class=''>r</button>
+        <button class=''>s</button>
+        <button class=''>t</button>
+        <button class=''>u</button>
+        <button class=''>v</button>
+        <button class=''>w</button>
+        <button class=''>x</button>
+        <button class=''>y</button>
+        <button class=''>z</button>
+    </div>
     <!-- this div shows letters already guessed -->
     <div class='usedLetters'></div>
 
     <script src='script.js'></script>
 </body>
+
 </html>
