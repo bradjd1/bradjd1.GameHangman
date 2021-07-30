@@ -29,6 +29,84 @@ body {
     text-align: center;
     background-color: green;
 }
+.gallows {
+    height: 22px;
+    width: 250px;
+    background-color: brown;
+}
+
+.animationBox {
+    position: relative;
+}
+
+/* .animationBox {
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+} */
+
+.head {
+    height: 50px;
+    width: 50px;
+    background-color: peachpuff;
+    border-radius: 50%;
+    margin: 10px 0px 0px 200px;
+}
+
+.eye {
+    position: fixed;
+    height: 7px;
+    width: 10px;
+    /* background-color: blue; */
+    border-radius: 50%;
+}
+
+.lefteye {
+    margin: 15px 10px 5px 30px;
+    background-color: gray;
+}
+.righteye {
+    margin: 15px 15px 5px 10px;
+    background-color: gray;
+}
+
+.torso {
+    /* position: relative; */
+    height: 80px;
+    width: 10px;
+    background-color: peachpuff;
+    margin: 0px 15px 25px 220px;
+}
+
+.arm {
+    height: 10px;
+    width: 50px;
+    top: 260px;
+    left: 370px;
+    /* margin: 0px 15px 25px 10px;  */
+}
+
+.arm1 {
+    position: absolute;
+    height: 10px;
+    width: 50px;
+    background-color: peachpuff;
+    top: 110px;
+    left: 230px;
+}
+
+.arm2 {
+    position: absolute;
+    height: 10px;
+    width: 50px;
+    background-color: peachpuff;
+    top: 110px;
+    left: 170px;
+}
 
 .word {
     text-align: center;
