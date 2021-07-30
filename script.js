@@ -1,6 +1,7 @@
 //console.log('script.js loaded');
+
 //create list which will be used to generate a random word to guess
-let possibleWords = ['test','one','two','three', 'watermelon'];
+let possibleWords = ['test','one','two','three','watermelon'];
 //the chosen word for the user to have to guess
 let chosenWord = '';
 //get and define objects from screen
@@ -30,11 +31,14 @@ function checkLetter (evt) {
     // get letter user picked
     letterSelected = evt.target.innerHTML;
     // if easy button, mark letter so can't be picked again
+    if (difficultyLevel == 'easy') {
+    evt.target.disabled = true;
+    }
+
 console.log(chosenWord,letterSelected);
     // scan chosenWord for each occurance of picked letter
   for (let i = 0; i < chosenWord.length; i++) {
         if (letterSelected == chosenWord[i] && sPlaceholder[i*2] == '_') {
-            console.log('in if', i,foundLetters,sPlaceholder[i*2]);
             foundLetters++;    //count each letter that is found
             tempFound = true;  //used later if no letters found
  //           sPlaceholder[i] = letterSelected;
@@ -51,10 +55,11 @@ console.log(chosenWord,letterSelected);
     //if foundLetter count = chosenWord.length they win
     console.log('here',foundLetters, chosenWord.length)
     if (foundLetters == chosenWord.length) {
-        displayNotificationMsg.innerHTML = 'You won! Click Easy or Harder to try again.';
+        displayNotificationMsg.innerHTML = 'You won! Click Easier or Harder to try again.';
         gamesWon++;
         winPct = gamesWon / gamesPlayed
         gameCounts();
+        foundLetters = 0;
     }
 
     function gameCounts() {
@@ -65,12 +70,10 @@ console.log(chosenWord,letterSelected);
     }
 
     if (wrongGuess >= 7) {
-        displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}. Click Easy or Harder to try again.`;
+        displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}. Click Easier or Harder to try again.`;
         displayWord.innerHTML = '';
         gameCounts();
     }
-    //   display lost
-    //   update win pct
 }
 
 function populateLetter(string, letter, index) {
@@ -109,6 +112,9 @@ function getWord() {
 
 function populateLetters() {
     //set all letters to be selectable
+    for (let i = 0; i < disAlphabetBtns.length; i++) {
+        disAlphabetBtns[i].disabled = false;
+    }
 }
 
 function resetGame() {
@@ -118,7 +124,7 @@ function resetGame() {
     gamesPlayed++;
     displayNotificationMsg.innerHTML = '';
     getWord();
-    //populate letters
+    populateLetters();
 }
 
 //event listener for easy/harder buttons
