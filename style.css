@@ -75,7 +75,6 @@ body {
 }
 
 .torso {
-    /* position: relative; */
     height: 80px;
     width: 10px;
     background-color: peachpuff;
@@ -87,13 +86,12 @@ body {
     width: 50px;
     top: 260px;
     left: 370px;
-    /* margin: 0px 15px 25px 10px;  */
 }
 
 .arm1 {
     position: absolute;
     height: 10px;
-    width: 50px;
+    width: 45px;
     background-color: peachpuff;
     top: 110px;
     left: 230px;
@@ -102,10 +100,46 @@ body {
 .arm2 {
     position: absolute;
     height: 10px;
-    width: 50px;
+    width: 45px;
     background-color: peachpuff;
     top: 110px;
-    left: 170px;
+    left: 175px;
+}
+
+.leg1 {
+    position: absolute;
+    height: 60px;
+    width: 10px;
+    background-color: peachpuff;
+    top: 160px;
+    left: 210px;
+}
+
+.leg2 {
+    position: absolute;
+    height: 60px;
+    width: 10px;
+    background-color: peachpuff;
+    top: 160px;
+    left: 230px;
+}
+
+.noose {
+    position: absolute;
+    height: 65px;
+    width: 10px;
+    background-color: yellow;
+    top: 22px;
+    left: 190px;
+}
+
+.noose2 {
+    position: absolute;
+    height: 10px;
+    width: 40px;
+    background-color: yellow;
+    top: 77px;
+    left: 200px;
 }
 
 .word {
