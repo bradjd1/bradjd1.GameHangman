@@ -33,6 +33,7 @@ body {
     height: 22px;
     width: 250px;
     background-color: brown;
+    /* display: none; */
 }
 
 .animationBox {
@@ -55,6 +56,7 @@ body {
     background-color: peachpuff;
     border-radius: 50%;
     margin: 10px 0px 0px 200px;
+    /* display: none; */
 }
 
 .eye {
@@ -75,26 +77,30 @@ body {
 }
 
 .torso {
-    height: 80px;
+    position: absolute;
+    height: 95px;
     width: 10px;
     background-color: peachpuff;
-    margin: 0px 15px 25px 220px;
+    top: 60px;
+    left:220px;
+    /* display: none; */
 }
 
-.arm {
+/* .arm {
     height: 10px;
     width: 50px;
     top: 260px;
     left: 370px;
-}
+} */
 
 .arm1 {
     position: absolute;
     height: 10px;
     width: 45px;
     background-color: peachpuff;
-    top: 110px;
+    top: 100px;
     left: 230px;
+    /* display: none; */
 }
 
 .arm2 {
@@ -102,8 +108,9 @@ body {
     height: 10px;
     width: 45px;
     background-color: peachpuff;
-    top: 110px;
+    top: 100px;
     left: 175px;
+    /* display: none; */
 }
 
 .leg1 {
@@ -111,8 +118,9 @@ body {
     height: 60px;
     width: 10px;
     background-color: peachpuff;
-    top: 160px;
+    top: 150px;
     left: 210px;
+    /* display: none; */
 }
 
 .leg2 {
@@ -120,8 +128,9 @@ body {
     height: 60px;
     width: 10px;
     background-color: peachpuff;
-    top: 160px;
+    top: 150px;
     left: 230px;
+    /* display: none; */
 }
 
 .noose {
@@ -131,6 +140,7 @@ body {
     background-color: yellow;
     top: 22px;
     left: 190px;
+    /* display: none; */
 }
 
 .noose2 {
@@ -140,6 +150,7 @@ body {
     background-color: yellow;
     top: 77px;
     left: 200px;
+    /* display: none; */
 }
 
 .word {
