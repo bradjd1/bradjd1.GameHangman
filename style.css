@@ -8,6 +8,7 @@ h1 {
 
 h2 {
     text-align: center; 
+    margin: 0;
 
 }
 
@@ -42,10 +43,12 @@ body {
 }
 .easyButton {
     background-color: rgb(175, 228, 175);
+    margin-top: 5px;
 }
 
 .harderButton {
     background-color: rgb(233, 151, 151);
+    margin-top: 5px;
 }
 
 .buttonGrp {
