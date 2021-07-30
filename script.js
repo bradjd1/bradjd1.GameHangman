@@ -21,7 +21,7 @@ let wrongGuess = 0;
 let gamesPlayed = 0;
 let gamesWon = 0;
 let winPct = 0;
-let letterSelected = '';
+let letterSelected = '';            //letter the user selected
 let sPlaceholder = "";              //chosenWord with commas removed
 let foundLetters = 0;               //number of letters the user has found
 
@@ -51,13 +51,23 @@ console.log(chosenWord,letterSelected);
     //if foundLetter count = chosenWord.length they win
     console.log('here',foundLetters, chosenWord.length)
     if (foundLetters == chosenWord.length) {
-        displayNotificationMsg.innerHTML = 'You won!';
+        displayNotificationMsg.innerHTML = 'You won! Click Easy or Harder to try again.';
+        gamesWon++;
+        winPct = gamesWon / gamesPlayed
+        gameCounts();
     }
-    //   message to play again, choose easy or hard
-    //   incriment games won, win pct
+
+    function gameCounts() {
+        winPct = gamesWon / gamesPlayed
+        displayGamesPlayed.innerHTML = gamesPlayed;
+        displayGamesWon.innerHTML = gamesWon;
+        displayWinPct.innerHTML = winPct;
+    }
+
     if (wrongGuess >= 7) {
-        displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}`;
+        displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}. Click Easy or Harder to try again.`;
         displayWord.innerHTML = '';
+        gameCounts();
     }
     //   display lost
     //   update win pct
@@ -82,7 +92,6 @@ function harder() {
 function getWord() {
     //get a word from possibleWords
     chosenWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-    gamesPlayed++;
     //put word on screen
     let placeholder = [];
     for (let i = 0; i < chosenWord.length; i++) {
@@ -106,6 +115,7 @@ function resetGame() {
     displayWord.innerHTML = "";
     wrongGuess = 0;
     foundLetters =0;
+    gamesPlayed++;
     displayNotificationMsg.innerHTML = '';
     getWord();
     //populate letters
