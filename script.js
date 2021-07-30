@@ -10,7 +10,9 @@ let displayGamesPlayed = document.querySelector('.gamesPlayed');
 let displayGamesWon = document.querySelector('.gamesWon');
 let displayWinPct = document.querySelector('.winPct');
 let displayWord = document.querySelector('.word');
-let disAlphabetBtns = document.querySelectorAll('.alphabetBtns')
+//let disAlphabetBtns = document.querySelectorAll('.alphabetBtns')
+let disAlphabetBtns = document.querySelectorAll('.alph')
+let DisalphabetBtnsContainer = document.querySelector('.alphabetBtns');
 
 //declare variables
 let difficultyLevel = 'easy';
@@ -19,9 +21,10 @@ let gamesPlayed = 0;
 let gamesWon = 0;
 let winPct = 0;
 
-function checkLetter () {
-    console.log('in check letter');
+function checkLetter (evt) {
+    console.log('in check letter',evt);
     console.log(disAlphabetBtns[0].children[0]);
+    console.log('here',evt.target.innerHTML);
     // get letter user picked
     // increment number wrong guesses
     // if easy button, mark letter so can't be picked again
@@ -65,6 +68,8 @@ function getWord() {
     addPlaceholder.innerHTML = `<div>${sPlaceholder}</div>`
     displayWord.appendChild(addPlaceholder);
     console.log(word, addPlaceholder);
+    DisalphabetBtnsContainer.style.display = 'block';
+
 }
 
 function populateLetters() {
@@ -82,6 +87,6 @@ easyBtn.addEventListener('click',easy);
 harderBtn.addEventListener('click',harder);
 
 //event Listener on alphabet buttons - call check letter
-for (let i = 0; i < 26; i++){
-//disAlphabetBtns.addEventListener('click',checkLetter);
+for (let i = 0; i < disAlphabetBtns.length; i++){
+disAlphabetBtns[i].addEventListener('click',checkLetter);
 }

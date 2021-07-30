@@ -3,6 +3,7 @@
 h1 {
     text-align: center;
     background-color: red;
+    margin: 0;
 }
 
 h2 {
@@ -10,9 +11,21 @@ h2 {
 
 }
 
+h3 {
+    margin: 0;
+}
+
+body {
+    display: grid;
+    row-gap: 15px;
+}
+.grp1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
 .gameCounts {
     text-align: center;
-    display: inline-block; left;
     background-color: green;
 }
 
@@ -35,13 +48,23 @@ h2 {
     background-color: rgb(233, 151, 151);
 }
 
-.alphabetBtns {
-position: fixed;
-right: 500px;
+.buttonGrp {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    }
+
+/* .alphabetBtns {
+ position: fixed;
+right: 500px; 
 text-align: left;
 display: flex;
 width: 20%;
 height: auto;
 flex-wrap: wrap;
 justify-content: space-between;
+grid template rows with 6 rows if do 6 rows of buttons
+} */
+.alphabetBtns {
+    display: none;
 }
