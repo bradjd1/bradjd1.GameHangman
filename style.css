@@ -1,8 +1,8 @@
-/* This is the style sheet.  It will style our page */
+/* This is the style sheet.  It will style our page */ 
 
 h1 {
     text-align: center;
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.63);
     margin: 0;
 }
 
@@ -32,7 +32,7 @@ body {
 .gallows {
     height: 22px;
     width: 250px;
-    background-color: brown;
+    background-color: rgb(150, 97, 36);
     /* display: none; */
 }
 
@@ -135,21 +135,22 @@ body {
 
 .noose {
     position: absolute;
-    height: 65px;
+    height: 10px;
     width: 10px;
-    background-color: yellow;
+    background-color: rgb(252, 230, 35);
     top: 22px;
-    left: 190px;
+    left: 220px;
     /* display: none; */
 }
 
 .noose2 {
     position: absolute;
     height: 10px;
-    width: 40px;
-    background-color: yellow;
+    width: 31px;
+    background-color: rgb(252, 230, 35);
     top: 77px;
-    left: 200px;
+    left: 208px;
+    z-index: 5;
     /* display: none; */
 }
 

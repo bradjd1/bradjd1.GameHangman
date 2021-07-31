@@ -64,12 +64,15 @@ function checkLetter(evt) {
     //if foundLetter count = chosenWord.length they win
     //console.log('here', foundLetters, chosenWord.length)
     if (foundLetters == chosenWord.length) {
-        displayNotificationMsg.innerHTML = 'You won! Click Easier or Harder to try again.';
+        displayNotificationMsg.innerHTML = 'You won! Click Easier or Harder to play again.';
         gamesWon++;
         winPct = gamesWon / gamesPlayed
         gameCounts();
         foundLetters = 0;
         dePopulateLetters();
+        setTimeout(function () {
+            alert('You Won!!');
+          },2);
     }
     //   console.log('before wrong', wrongGuess);
     if (wrongGuess == 1) {
@@ -94,14 +97,21 @@ function checkLetter(evt) {
         //       displayWord.innerHTML = '';
         dePopulateLetters();
         gameCounts();
+        // if (noose2.style.display = 'block') {
+        // setTimeout(alert('Sorry, you lost this one.'),9000);
+        // }
+        setTimeout(function () {
+            alert('Sorry, you lost this one');
+          },2);
+          
     }
 }
 
 function gameCounts() {
-    winPct = gamesWon / gamesPlayed
+    winPct = Math.floor(((gamesWon / gamesPlayed).toFixed(2)) * 100);
     displayGamesPlayed.innerHTML = gamesPlayed;
     displayGamesWon.innerHTML = gamesWon;
-    displayWinPct.innerHTML = winPct;
+    displayWinPct.innerHTML = `${winPct}%`;
 }
 
 function populateLetter(string, letter, index) {
