@@ -1,7 +1,7 @@
 //console.log('script.js loaded');
 
 //create list which will be used to generate a random word to guess
-let possibleWords = ['test', 'one', 'two', 'three', 'watermelon'];
+let possibleWords = ['test', 'one', 'two', 'three', 'watermelon','wi-fi',"it's"];
 //the chosen word for the user to have to guess
 let chosenWord = '';
 //get and define objects from screen
@@ -48,6 +48,7 @@ function checkLetter(evt) {
     //console.log(chosenWord, letterSelected);
     // scan chosenWord for each occurance of picked letter
     for (let i = 0; i < chosenWord.length; i++) {
+ //       console.log('chk letter',letterSelected, chosenWord[i],sPlaceholder[i * 2]);
         if (letterSelected == chosenWord[i] && sPlaceholder[i * 2] == '_') {
             foundLetters++;    //count each letter that is found
             tempFound = true;  //used later if no letters found
@@ -137,15 +138,28 @@ function harder() {
 async function getWord() {
     //get a word from possibleWords.
     //Can pull from an array
-    //chosenWord = getWordFromArray();
+    chosenWord = getWordFromArray();
     //or use an API call and get a random word from the internet
-    chosenWord = await getWordFromApi();
+    //chosenWord = await getWordFromApi();
         //put word on screen
         let placeholder = [];
         for (let i = 0; i < chosenWord.length; i++) {
-            placeholder.push('_ ');
-
+            if (chosenWord[i] == '-') {
+                placeholder.push('- ');
+                foundLetters++;
+            } else if (chosenWord[i] == "'") {
+                placeholder.push("' ");
+                foundLetters++;
+            } else {
+                placeholder.push('_ ');
+            }
         }
+        // for (let j = 0; j < placeholder.length; j++) {
+        //     if (placeholder[j] == '-') {
+        //         foundLetters++;
+        //         placeholder[j] = '-';
+        //     }
+        // }
         sPlaceholder = placeholder.toString();
         sPlaceholder = sPlaceholder.replace(/,/g, "");
         let addPlaceholder = document.createElement('div');
