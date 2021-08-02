@@ -156,6 +156,7 @@ body {
 
 .word {
     text-align: center;
+    font-weight: bold;
 }
 
 .availLetters {

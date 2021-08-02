@@ -56,7 +56,6 @@ function checkLetter(evt) {
     }
     if (!tempFound) {         //the selected letter was not found
         wrongGuess++;         //increment the number of wrong guesses
-        //       console.log('wrong:', wrongGuess);
     }
     displayWord.innerHTML = sPlaceholder;
     //if foundLetter count = chosenWord.length they win
@@ -66,14 +65,13 @@ function checkLetter(evt) {
         gamesWon++;
         winPct = gamesWon / gamesPlayed
         gameCounts();
-        foundLetters = 0;
+        //foundLetters = 0;
         dePopulateLetters();
         // setTimeout(function () {
         //     alert('You Won!!');
         // }, 2);
-    }
-    //   console.log('before wrong', wrongGuess);
-    if (wrongGuess == 1) {
+        // if guess is incorrect, display guesses left and the coresponding body part
+    } else if (wrongGuess == 1) {
         gallows.style.display = 'block';
         head.style.display = 'block';
         updateGuessesLeft(wrongGuess);
