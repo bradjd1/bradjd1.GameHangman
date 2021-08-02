@@ -6,3 +6,5 @@ The game is typically scored by adding a noose and 6 body parts to the hangman's
 
 This game was written with HTML, CSS, and Javascript using Visual Studio and -bash.
 I started by making a wireframe of the screen, and coming up with the bsic functionality I would implement, which I documented wiht pseudocode.  I then designed a simple screen with HTML and styled it with CSS.  I then converted the pseudocode into javascript.  After testing and tweaking the application, I used CSS and HTML to add the stickman graphics.  I then searched for APIs to retrieve random words.  Many of the sites I found no longer worked.  Those that did returned words with hyphens, and other special characters and/or curse words.  Since I planned to use my children an neices as test subjests, I did not want any curse words appearing.  I found a site that I don't beleive contains profanity, so I chose to use it.  The code had not yet been altered to address any special characters that might be returned in a word.
+
+You can choose to read from the array or call the API by choosing which method to call in function getWord.

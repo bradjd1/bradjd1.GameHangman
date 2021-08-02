@@ -45,20 +45,17 @@ function checkLetter(evt) {
         evt.target.disabled = true;
     }
 
-    console.log(chosenWord, letterSelected);
+    //console.log(chosenWord, letterSelected);
     // scan chosenWord for each occurance of picked letter
     for (let i = 0; i < chosenWord.length; i++) {
         if (letterSelected == chosenWord[i] && sPlaceholder[i * 2] == '_') {
             foundLetters++;    //count each letter that is found
             tempFound = true;  //used later if no letters found
-            //           sPlaceholder[i] = letterSelected;
             sPlaceholder = populateLetter(sPlaceholder, letterSelected, i);
         }
-        //      console.log('after - ', sPlaceholder, foundLetters);
-        //    if no letter found, increment number wrong guesses, trigger animation
     }
     if (!tempFound) {         //the selected letter was not found
-        wrongGuess++;
+        wrongGuess++;         //increment the number of wrong guesses
         //       console.log('wrong:', wrongGuess);
     }
     displayWord.innerHTML = sPlaceholder;
@@ -71,24 +68,30 @@ function checkLetter(evt) {
         gameCounts();
         foundLetters = 0;
         dePopulateLetters();
-        setTimeout(function () {
-            alert('You Won!!');
-        }, 2);
+        // setTimeout(function () {
+        //     alert('You Won!!');
+        // }, 2);
     }
     //   console.log('before wrong', wrongGuess);
     if (wrongGuess == 1) {
         gallows.style.display = 'block';
         head.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 2) {
         torso.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 3) {
         arm1.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 4) {
         arm2.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 5) {
         leg1.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 6) {
         leg2.style.display = 'block';
+        updateGuessesLeft(wrongGuess);
     } else if (wrongGuess == 7) {
         noose1.style.display = 'block';
         noose2.style.display = 'block';
@@ -99,11 +102,15 @@ function checkLetter(evt) {
         // if (noose2.style.display = 'block') {
         // setTimeout(alert('Sorry, you lost this one.'),9000);
         // }
-        setTimeout(function () {
-            alert('Sorry, you lost this one');
-        }, 2);
+        // setTimeout(function () {
+        //     alert('Sorry, you lost this one');
+        // }, 2);
 
     }
+}
+
+function updateGuessesLeft(guessCount) {
+    displayNotificationMsg.innerHTML = `Guesses Left: ${7-guessCount}`
 }
 
 function gameCounts() {
@@ -139,7 +146,7 @@ async function getWord() {
         let placeholder = [];
         for (let i = 0; i < chosenWord.length; i++) {
             placeholder.push('_ ');
-            //      addPlaceholder.classList.add();
+
         }
         sPlaceholder = placeholder.toString();
         sPlaceholder = sPlaceholder.replace(/,/g, "");
