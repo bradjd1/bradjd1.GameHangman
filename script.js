@@ -34,6 +34,7 @@ let winPct = 0;
 let letterSelected = '';            //letter the user selected
 let sPlaceholder = "";              //chosenWord with commas removed
 let foundLetters = 0;               //number of letters the user has found
+let wordList = '';
 
 function checkLetter(evt) {
     let tempFound = false;
@@ -72,16 +73,14 @@ function checkLetter(evt) {
         dePopulateLetters();
         setTimeout(function () {
             alert('You Won!!');
-          },2);
+        }, 2);
     }
     //   console.log('before wrong', wrongGuess);
     if (wrongGuess == 1) {
         gallows.style.display = 'block';
         head.style.display = 'block';
-        console.log('gallows', gallows, head);
     } else if (wrongGuess == 2) {
         torso.style.display = 'block';
-        console.log('torso', torso)
     } else if (wrongGuess == 3) {
         arm1.style.display = 'block';
     } else if (wrongGuess == 4) {
@@ -102,8 +101,8 @@ function checkLetter(evt) {
         // }
         setTimeout(function () {
             alert('Sorry, you lost this one');
-          },2);
-          
+        }, 2);
+
     }
 }
 
@@ -130,23 +129,45 @@ function harder() {
     resetGame();
 }
 
-function getWord() {
+async function getWord() {
+    //get a word from possibleWords.
+    //Can pull from an array
+    //chosenWord = getWordFromArray();
+    //or use an API call and get a random word from the internet
+    chosenWord = await getWordFromApi();
+        //put word on screen
+        let placeholder = [];
+        for (let i = 0; i < chosenWord.length; i++) {
+            placeholder.push('_ ');
+            //      addPlaceholder.classList.add();
+        }
+        sPlaceholder = placeholder.toString();
+        sPlaceholder = sPlaceholder.replace(/,/g, "");
+        let addPlaceholder = document.createElement('div');
+        addPlaceholder.innerHTML = `<div>${sPlaceholder}</div>`
+        displayWord.appendChild(addPlaceholder);
+        console.log(chosenWord, addPlaceholder);
+        DisalphabetBtnsContainer.style.display = 'block';
+}
+
+function getWordFromArray() {
     //get a word from possibleWords
     chosenWord = possibleWords[Math.floor(Math.random() * possibleWords.length)];
-    //put word on screen
-    let placeholder = [];
-    for (let i = 0; i < chosenWord.length; i++) {
-        placeholder.push('_ ');
-        //      addPlaceholder.classList.add();
-    }
-    sPlaceholder = placeholder.toString();
-    sPlaceholder = sPlaceholder.replace(/,/g, "");
-    let addPlaceholder = document.createElement('div');
-    addPlaceholder.innerHTML = `<div>${sPlaceholder}</div>`
-    displayWord.appendChild(addPlaceholder);
-    console.log(chosenWord, addPlaceholder);
-    DisalphabetBtnsContainer.style.display = 'block';
+    console.log('from array', chosenWord);
+    return chosenWord;
 }
+async function getWordFromApi() {
+    let category = ['https://random-word-form.herokuapp.com/random/adjective', 'https://random-word-form.herokuapp.com/random/noun'];
+    let target = category[Math.floor(Math.random() * 2)];
+    const response = await axios({
+        method: 'get',
+        url: 'https://random-word-form.herokuapp.com/random/adjective'
+    });
+    let wordFromList = response.data;
+    console.log('from api', wordFromList[0]);
+    return wordFromList[0];
+}
+
 
 function populateLetters() {
     //set all letters to be selectable
@@ -161,13 +182,15 @@ function dePopulateLetters() {
     }
 }
 
-function resetGame() {
+async function resetGame() {
     displayWord.innerHTML = "";
     wrongGuess = 0;
     foundLetters = 0;
     gamesPlayed++;
     displayNotificationMsg.innerHTML = '';
-    getWord();
+    console.log('before getword');
+    await getWord();
+    console.log('after getword');
     populateLetters();
     gallows.style.display = 'none';
     head.style.display = 'none';
@@ -178,6 +201,8 @@ function resetGame() {
     leg2.style.display = 'none';
     noose1.style.display = 'none';
     noose2.style.display = 'none';
+    //chosenWord = '';
+    //may need an await if getWord needs to finish before rest of code
 }
 
 gallows.style.display = 'none';
