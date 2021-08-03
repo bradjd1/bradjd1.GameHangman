@@ -66,6 +66,7 @@ function checkLetter(evt) {
     //console.log('here', foundLetters, chosenWord.length)
     if (foundLetters == chosenWord.length) {
         displayNotificationMsg.innerHTML = 'You won! Click Easier or Harder to play again.';
+        playBell1();
         gamesWon++;
         winPct = gamesWon / gamesPlayed
         gameCounts();
@@ -101,6 +102,7 @@ function checkLetter(evt) {
         displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}. Click Easier or Harder to try again.`;
         //       displayWord.innerHTML = '';
         dePopulateLetters();
+        playbomb1();
         gameCounts();
         // if (noose2.style.display = 'block') {
         // setTimeout(alert('Sorry, you lost this one.'),9000);
@@ -240,10 +242,18 @@ function removeHangman() {
 removeHangman();
 
 //play a beep - used with button clicks
-let audio9 = new Audio('button-29.mp3');
+let audio9 = new Audio('sound-effects/button-29.mp3');
 function playBeep29() {
     audio9.play();
-    }
+}
+let bell1 = new Audio('sound-effects/bell-ring-01.mp3');
+function playBell1() {
+    bell1.play();
+}
+let bomb1 = new Audio('sound-effects/bomb-falling-and-exploding-01.mp3');
+function playbomb1() {
+    bomb1.play();
+}
 //event listener for easy/harder buttons
 easyBtn.addEventListener('click', easy);
 easyBtn.addEventListener('click', playBeep29);
