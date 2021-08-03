@@ -12,7 +12,7 @@ I started by making a wireframe of the screen and coming up with the basic funct
 
 You can choose to read from the array or call the API by choosing which method to call in function getWord.  Since I implemented the API, I only pre-loaded the array with a few test words.
 
-I consulted previous homework assignments for examples of how to write some of the code.  I used google to find a random word API.  The one I chose to use is located at 'https://random-word-form.herokuapp.com/random/'
+I consulted previous homework assignments for examples of how to write some of the code.  I used google to find a random word API.  The one I chose to use is located at 'https://random-word-form.herokuapp.com/random/'.  I got the audio sounds from https://www.soundjay.com.
 
 To contribute to this game:
 1. Fork and clone the repository
