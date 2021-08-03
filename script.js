@@ -184,7 +184,8 @@ async function getWordFromApi() {
     let target = category[Math.floor(Math.random() * 2)];
     const response = await axios({
         method: 'get',
-        url: 'https://random-word-form.herokuapp.com/random/adjective'
+        // url: 'https://random-word-form.herokuapp.com/random/adjective'
+        url: target
     });
     let wordFromList = response.data;
     console.log('from api', wordFromList[0]);
@@ -237,12 +238,27 @@ function removeHangman() {
 
 //start without hangman displaying
 removeHangman();
-
+let audio6 = new Audio('https://www.soundjay.com/buttons/sounds/button-6.mp3');
+let audio9 = new Audio('https://www.soundjay.com/buttons/sounds/button-29.mp3');
+function playBeep6() {
+audio6.play();
+}
+function playBeep9() {
+    audio9.play();
+    }
 //event listener for easy/harder buttons
 easyBtn.addEventListener('click', easy);
+easyBtn.addEventListener('click', playBeep9);
 harderBtn.addEventListener('click', harder);
+harderBtn.addEventListener('click', playBeep9);
 
 //event Listener on alphabet buttons - call check letter
 for (let i = 0; i < disAlphabetBtns.length; i++) {
     disAlphabetBtns[i].addEventListener('click', checkLetter);
+    disAlphabetBtns[i].addEventListener('click', playBeep6);
 }
+
+
+// for (let i = 0; i < disAlphabetBtns.length; i++) {
+//     disAlphabetBtns[i].addEventListener('click', playBeep);
+// }
