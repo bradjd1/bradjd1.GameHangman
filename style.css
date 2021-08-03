@@ -13,7 +13,7 @@ h2 {
 }
 
 h3 {
-    margin: 0;
+ //   margin: 0;
 }
 
 body {
@@ -30,9 +30,11 @@ body {
     background-color: green;
 }
 .gallows {
-    height: 22px;
+    position: absolute;
+    height: 20px;
     width: 250px;
     background-color: rgb(150, 97, 36);
+    left: 30px;
     /* display: none; */
 }
 
@@ -51,28 +53,41 @@ body {
 } */
 
 .head {
+    position: absolute;
     height: 50px;
     width: 50px;
     background-color: peachpuff;
     border-radius: 50%;
-    margin: 10px 0px 0px 200px;
+    /* margin: 10px 0px 0px 200px; */
+    top: 35px;
+    left: 200px;
     /* display: none; */
 }
 
-.eye {
-    position: fixed;
+/* .eye {
+    position: absolute;
     height: 7px;
     width: 10px;
-    /* background-color: blue; */
+     background-color: blue; 
     border-radius: 50%;
-}
+} */
 
 .lefteye {
-    margin: 15px 10px 5px 30px;
+    position: absolute;
+    height: 7px;
+    width: 10px;
+    border-radius: 50%;
+    top: 10px;
+    left: 10px;
     background-color: gray;
 }
 .righteye {
-    margin: 15px 15px 5px 10px;
+    position: absolute;
+    height: 7px;
+    width: 10px;
+    border-radius: 50%;
+    top: 10px;
+    left: 30px;
     background-color: gray;
 }
 
@@ -135,10 +150,10 @@ body {
 
 .noose {
     position: absolute;
-    height: 10px;
+    height: 38px;
     width: 10px;
     background-color: rgb(252, 230, 35);
-    top: 22px;
+    top: 0px;
     left: 220px;
     /* display: none; */
 }
@@ -148,9 +163,38 @@ body {
     height: 10px;
     width: 31px;
     background-color: rgb(252, 230, 35);
-    top: 77px;
+    top: 82px;
     left: 208px;
     z-index: 5;
+    /* display: none; */
+}
+
+.platform {
+    position: absolute;
+    height: 42px;
+    width: 300px;
+    background-color: rgb(150, 97, 36);
+    top: 210px;
+    left: 50px;
+    /* display: none; */
+}
+
+.trap {
+    position: absolute;
+    height: 22px;
+    width: 100px;
+    background-color:black;
+    top: 0px;
+    left: 125px;
+    /* display: none; */
+}
+
+.vertgallows {
+    position: absolute;
+    height: 252px;
+    width: 22px;
+    background-color: rgb(150, 97, 36);
+    left: 30px;
     /* display: none; */
 }
 

@@ -1,7 +1,7 @@
 //console.log('script.js loaded');
 
 //create list which will be used to generate a random word to guess
-let possibleWords = ['test', 'one', 'two', 'three', 'watermelon','wi-fi',"it's"];
+let possibleWords = ['test', 'one', 'two', 'three', 'watermelon', 'wi-fi', "it's"];
 //the chosen word for the user to have to guess
 let chosenWord = '';
 //get and define objects from screen
@@ -24,6 +24,9 @@ let leg1 = document.querySelector('.leg1');
 let leg2 = document.querySelector('.leg2');
 let noose1 = document.querySelector('.noose');
 let noose2 = document.querySelector('.noose2');
+let vertGallows = document.querySelector('.vertgallows ');
+let platform = document.querySelector('.platform');
+let trap = document.querySelector('.trap');
 
 //declare variables
 let difficultyLevel = 'easy';       //easy or hard button
@@ -48,7 +51,7 @@ function checkLetter(evt) {
     //console.log(chosenWord, letterSelected);
     // scan chosenWord for each occurance of picked letter
     for (let i = 0; i < chosenWord.length; i++) {
- //       console.log('chk letter',letterSelected, chosenWord[i],sPlaceholder[i * 2]);
+        //       console.log('chk letter',letterSelected, chosenWord[i],sPlaceholder[i * 2]);
         if (letterSelected == chosenWord[i] && sPlaceholder[i * 2] == '_') {
             foundLetters++;    //count each letter that is found
             tempFound = true;  //used later if no letters found
@@ -94,6 +97,7 @@ function checkLetter(evt) {
     } else if (wrongGuess == 7) {
         noose1.style.display = 'block';
         noose2.style.display = 'block';
+        trap.style.display = 'block';
         displayNotificationMsg.innerHTML = `Sorry, you lost. The word was: ${chosenWord}. Click Easier or Harder to try again.`;
         //       displayWord.innerHTML = '';
         dePopulateLetters();
@@ -109,7 +113,7 @@ function checkLetter(evt) {
 }
 
 function updateGuessesLeft(guessCount) {
-    displayNotificationMsg.innerHTML = `Guesses Left: ${7-guessCount}`
+    displayNotificationMsg.innerHTML = `Guesses Left: ${7 - guessCount}`
 }
 
 function gameCounts() {
@@ -138,35 +142,35 @@ function harder() {
 async function getWord() {
     //get a word from possibleWords.
     //Can pull from an array
-    chosenWord = getWordFromArray();
+    //chosenWord = getWordFromArray();
     //or use an API call and get a random word from the internet
-    //chosenWord = await getWordFromApi();
-        //put word on screen
-        let placeholder = [];
-        for (let i = 0; i < chosenWord.length; i++) {
-            if (chosenWord[i] == '-') {
-                placeholder.push('- ');
-                foundLetters++;
-            } else if (chosenWord[i] == "'") {
-                placeholder.push("' ");
-                foundLetters++;
-            } else {
-                placeholder.push('_ ');
-            }
+    chosenWord = await getWordFromApi();
+    //put word on screen
+    let placeholder = [];
+    for (let i = 0; i < chosenWord.length; i++) {
+        if (chosenWord[i] == '-') {
+            placeholder.push('- ');
+            foundLetters++;
+        } else if (chosenWord[i] == "'") {
+            placeholder.push("' ");
+            foundLetters++;
+        } else {
+            placeholder.push('_ ');
         }
-        // for (let j = 0; j < placeholder.length; j++) {
-        //     if (placeholder[j] == '-') {
-        //         foundLetters++;
-        //         placeholder[j] = '-';
-        //     }
-        // }
-        sPlaceholder = placeholder.toString();
-        sPlaceholder = sPlaceholder.replace(/,/g, "");
-        let addPlaceholder = document.createElement('div');
-        addPlaceholder.innerHTML = `<div>${sPlaceholder}</div>`
-        displayWord.appendChild(addPlaceholder);
-        console.log(chosenWord, addPlaceholder);
-        DisalphabetBtnsContainer.style.display = 'block';
+    }
+    // for (let j = 0; j < placeholder.length; j++) {
+    //     if (placeholder[j] == '-') {
+    //         foundLetters++;
+    //         placeholder[j] = '-';
+    //     }
+    // }
+    sPlaceholder = placeholder.toString();
+    sPlaceholder = sPlaceholder.replace(/,/g, "");
+    let addPlaceholder = document.createElement('div');
+    addPlaceholder.innerHTML = `<div>${sPlaceholder}</div>`
+    displayWord.appendChild(addPlaceholder);
+    console.log(chosenWord, addPlaceholder);
+    DisalphabetBtnsContainer.style.display = 'block';
 }
 
 function getWordFromArray() {
@@ -211,7 +215,13 @@ async function resetGame() {
     await getWord();
     console.log('after getword');
     populateLetters();
-    gallows.style.display = 'none';
+    removeHangman();
+    //chosenWord = '';
+    //may need an await if getWord needs to finish before rest of code
+}
+
+function removeHangman() {
+    trap.style.display = 'none';
     head.style.display = 'none';
     torso.style.display = 'none';
     arm1.style.display = 'none';
@@ -220,19 +230,13 @@ async function resetGame() {
     leg2.style.display = 'none';
     noose1.style.display = 'none';
     noose2.style.display = 'none';
-    //chosenWord = '';
-    //may need an await if getWord needs to finish before rest of code
+    // gallows.style.display = 'none';
+    // vertGallows.style.display = 'none'
+    // platform.style.display = 'none';
 }
 
-gallows.style.display = 'none';
-head.style.display = 'none';
-torso.style.display = 'none';
-arm1.style.display = 'none';
-arm2.style.display = 'none';
-leg1.style.display = 'none';
-leg2.style.display = 'none';
-noose1.style.display = 'none';
-noose2.style.display = 'none';
+//start without hangman displaying
+removeHangman();
 
 //event listener for easy/harder buttons
 easyBtn.addEventListener('click', easy);
