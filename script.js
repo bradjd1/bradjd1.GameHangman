@@ -211,7 +211,7 @@ async function resetGame() {
     wrongGuess = 0;
     foundLetters = 0;
     gamesPlayed++;
-    displayNotificationMsg.innerHTML = '';
+    displayNotificationMsg.innerHTML = 'Chose the Easier or Harder button to play';
     console.log('before getword');
     await getWord();
     console.log('after getword');
