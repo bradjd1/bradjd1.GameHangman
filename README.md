@@ -1,4 +1,4 @@
-This game was created to fulfill a class project.  However, I hope it may bring enjoyment to you as you play.
+This game was created to fulfill a class project.  However, I hope it may bring enjoyment to you as you play.  https://bradjd1.github.io/bradjd1.GameHangman/
 
 This is the game of hangman.  The objective is to guess what the hidden word is with less than 7 incorrect letter guesses.  You play by guessing letters of the alphabet that you believe are in the word.  If that letter is in the word, the letter is displayed.  If the letter is not in the word, it is counted as an incorrect guess.  If you guess the word correctly with less than 7 incorrect letter guesses, you win.  You lose on the 7th incorrect letter guess.
 
